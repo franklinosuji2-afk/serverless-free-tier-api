@@ -33,16 +33,16 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Ref TaskTable
       Events:
-  ApiEvent:
-    Type: Api
-    Properties:
-      Path: /tasks
-      Method: ANY
-  ApiEventWithId:
-    Type: Api
-    Properties:
-      Path: /tasks/{id}
-      Method: ANY
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /tasks
+            Method: ANY
+        ApiEventWithId:
+          Type: Api
+          Properties:
+            Path: /tasks/{id}
+            Method: ANY
 
 
 Outputs:

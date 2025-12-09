@@ -1,4 +1,6 @@
-﻿# 📝 Serverless Free-Tier Task API
+﻿cd /home/user/serverless-free-tier-api && cat README.md
+session: default
+# 📝 Serverless Free-Tier Task API
 
 Serverless Free-Tier Task API is a cloud-native, serverless project built with AWS Lambda, API Gateway, and DynamoDB. It provides a fully functional CRUD API for managing tasks while staying completely within AWS Free Tier. This project demonstrates modern serverless architecture, infrastructure-as-code (SAM), and practical DevOps deployment skills, making it a strong portfolio piece for cloud and DevOps roles.
 
@@ -36,12 +38,14 @@ This project demonstrates a **cloud-native, serverless architecture**, ideal for
 
 ## 📂 Project Structure
 
+```
 serverless-free-tier-api/
-├─ src/ # Lambda function source code
-│ └─ app.py # Lambda handler
-├─ template.yaml # AWS SAM template
-├─ samconfig.toml # SAM CLI config
-└─ README.md # Project documentation
+├─ src/                # Lambda function source code
+│  └─ app.py           # Lambda handler
+├─ template.yaml       # AWS SAM template
+├─ samconfig.toml      # SAM CLI config
+└─ README.md           # Project documentation
+```
 
 
 ---
@@ -57,53 +61,67 @@ serverless-free-tier-api/
 
 2. **Build the project**:
 
-```bash
-sam build --use-container
-sam deploy --guided
+   ```bash
+   sam build --use-container
+   sam deploy --guided
+   ```
 
-Follow prompts to set stack name, region, and IAM permissions.
+   Follow prompts to set stack name, region, and IAM permissions.
 
-After deployment, SAM provides your API Gateway URL.
+3. **After deployment**, SAM provides your API Gateway URL.
 
-📡 API Usage
+---
 
-Replace <API_URL> with your deployed endpoint.
+## 📡 API Usage
 
-Create a task:
+Replace `<API_URL>` with your deployed endpoint.
 
+### Create a task:
+
+```powershell
 $body = @{ id="1"; description="Finish project"; completed=$false } | ConvertTo-Json
 Invoke-RestMethod -Uri "<API_URL>/tasks" -Method Post -Body $body -ContentType "application/json"
+```
 
+### Get all tasks:
+
+```powershell
 Invoke-RestMethod -Uri "<API_URL>/tasks" -Method Get
+```
 
+### Update a task:
+
+```powershell
 $body = @{ completed=$true } | ConvertTo-Json
 Invoke-RestMethod -Uri "<API_URL>/tasks/1" -Method Put -Body $body -ContentType "application/json"
+```
 
+### Delete a task:
+
+```powershell
 Invoke-RestMethod -Uri "<API_URL>/tasks/1" -Method Delete
+```
 
-💡 Notes
+---
 
-Designed to stay within AWS Free Tier limits
+## 💡 Notes
 
-Great for a portfolio project to demonstrate serverless architecture
+- Designed to stay within AWS Free Tier limits
+- Great for a portfolio project to demonstrate serverless architecture
+- Extendable for more advanced use cases
 
-Extendable for more advanced use cases
+---
 
-📖 References
+## 📖 References
 
-AWS SAM Documentation
+- [AWS SAM Documentation](https://docs.aws.amazon.com/serverless-application-model/)
+- [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/)
+- [Amazon DynamoDB Documentation](https://docs.aws.amazon.com/dynamodb/)
+- [Amazon API Gateway Documentation](https://docs.aws.amazon.com/apigateway/)
 
-AWS Lambda Developer Guide
+---
 
-Amazon DynamoDB Documentation
+## ⚡ Author
 
-Amazon API Gateway Documentation
-
-⚡ Author
-
-Franklin Chionoso – DevOps & Cloud Enthusiast
-
-
-
-
+**Franklin Chionoso** – DevOps & Cloud Enthusiast
 
