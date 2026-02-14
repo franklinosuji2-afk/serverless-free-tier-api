@@ -123,5 +123,5 @@ Invoke-RestMethod -Uri "<API_URL>/tasks/1" -Method Delete
 
 ## ⚡ Author
 
-**Franklin Chionoso** – DevOps & Cloud Enthusiast
+**Franklin Chinonso** – DevOps & Cloud Enthusiast
 
